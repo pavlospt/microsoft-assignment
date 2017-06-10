@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+  compileSdkVersion 25
+  buildToolsVersion "25.0.3"
+  defaultConfig {
+    applicationId "com.github.pavlospt.microsoftassignment"
+    minSdkVersion 19
+    targetSdkVersion 25
+    versionCode 1
+    versionName "1.0"
+  }
+  buildTypes {
+  }
+}
+
+configurations.all {
+  resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
+}
+
+dependencies {
+  // Android Dependencies
+  compile 'com.android.support:appcompat-v7:25.3.1'
+  compile 'com.android.support:design:25.3.1'
+  compile 'com.android.support:recyclerview-v7:25.3.1'
+
+  // StorIO Dependencies
+  compile 'com.pushtorefresh.storio:sqlite:1.13.0'
+  compile 'com.pushtorefresh.storio:sqlite-annotations:1.13.0'
+  kapt 'com.pushtorefresh.storio:sqlite-annotations-processor:1.13.0'
+
+  // Kotlin Dependencies
+  compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+  // Retrofit Dependencies
+  compile 'com.squareup.retrofit2:retrofit:2.3.0'
+  compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+  compile 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+
+  // Rx Dependencies
+  compile 'io.reactivex:rxjava:1.3.0'
+  compile 'io.reactivex:rxandroid:1.2.1'
+  compile 'com.jakewharton.rxbinding:rxbinding:1.0.1'
+
+  // OkHTTP Dependencies
+  compile 'com.squareup.okhttp3:logging-interceptor:3.5.0'
+
+  // GSON
+  compile 'com.google.code.gson:gson:2.8.1'
+
+  // Dagger Dependencies
+  compile 'com.google.dagger:dagger:2.8'
+  kapt 'com.google.dagger:dagger-compiler:2.8'
+
+  // Glide Dependencies
+  compile 'com.github.bumptech.glide:glide:3.8.0'
+
+  // Test Dependencies
+  testCompile 'junit:junit:4.12'
+  testCompile 'org.mockito:mockito-core:1.10.19'
+}
+repositories {
+  mavenCentral()
+}

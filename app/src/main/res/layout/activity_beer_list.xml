@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.github.pavlospt.microsoftassignment.beer_list_feature.BeerListActivity">
+
+  <EditText
+      android:id="@+id/activity_beer_list_search"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="16dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="10dp"/>
+
+  <TextView
+      android:id="@+id/activity_beer_list_info_message"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/activity_beer_list_search"
+      android:layout_marginTop="10dp"
+      android:gravity="center"
+      android:textSize="16sp"
+      android:textStyle="italic"
+      android:visibility="gone"
+      tools:text="Showing persisted results"
+      tools:visibility="visible"/>
+
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_below="@+id/activity_beer_list_info_message"
+      android:layout_marginTop="10dp">
+
+    <ProgressBar
+        android:id="@+id/activity_beer_list_loading_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="false"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/activity_beer_list_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+  </FrameLayout>
+
+</RelativeLayout>
