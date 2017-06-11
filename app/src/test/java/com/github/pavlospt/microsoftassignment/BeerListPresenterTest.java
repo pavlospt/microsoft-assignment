@@ -13,6 +13,7 @@ import com.pushtorefresh.storio.sqlite.operations.delete.DeleteResult;
 import com.pushtorefresh.storio.sqlite.operations.put.PutResult;
 import com.pushtorefresh.storio.sqlite.operations.put.PutResults;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -78,7 +79,7 @@ public class BeerListPresenterTest {
     List<BeerStorIOModel> dummyStorIOBeers =
         BeerTransformer.INSTANCE.transformToStorIOBeer(dummyBeers);
 
-    when(mockStorIOInteractor.search("Foo Beer")).thenReturn(Observable.just(dummyStorIOBeers));
+    when(mockStorIOInteractor.search(Arrays.asList("Foo", "Beer"))).thenReturn(Observable.just(dummyStorIOBeers));
 
     BeerListPresenter presenter = new BeerListPresenter(mockInteractor, Schedulers.immediate());
     presenter.init(mockView);

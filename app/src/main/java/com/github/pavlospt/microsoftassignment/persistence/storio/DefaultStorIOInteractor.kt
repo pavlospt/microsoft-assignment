@@ -1,5 +1,6 @@
 package com.github.pavlospt.microsoftassignment.persistence.storio
 
+import com.github.pavlospt.microsoftassignment.misc.utils.DBUtils
 import com.github.pavlospt.microsoftassignment.persistence.storio.BeersTable.Companion.GET_ALL_BEERS_QUERY
 import com.pushtorefresh.storio.sqlite.StorIOSQLite
 import com.pushtorefresh.storio.sqlite.operations.delete.DeleteResult
@@ -30,29 +31,29 @@ class DefaultStorIOInteractor @Inject constructor(
    * "name||brewer_tips||contributed_by||first_brewed||tagline",
    * against the persisted data
    * */
-  override fun search(term: String): Observable<List<BeerStorIOModel>> {
-    val escapedTerm = "%$term%"
+  override fun search(terms: List<String>): Observable<List<BeerStorIOModel>> {
+    val searchableColumns = mutableListOf<String>(
+        BeersTable.COLUMN_NAME,
+        BeersTable.COLUMN_BREWER_TIPS,
+        BeersTable.COLUMN_CONTRIBUTED_BY,
+        BeersTable.COLUMN_DESCRIPTION,
+        BeersTable.COLUMN_FIRST_BREWED,
+        BeersTable.COLUMN_TAGLINE
+    )
+
+    val query = Query.builder().table(BeersTable.TABLE_NAME)
+        .where(DBUtils.generateWhereStatement(searchableColumns, terms.size))
+        .whereArgs(DBUtils.generateWrappedTermsList(terms, searchableColumns.size))
+        .build()
+
+    println(query.toString())
 
     return storIOSQLite
         .get()
         .listOfObjects(BeerStorIOModel::class.java)
         .withQuery(Query.builder().table(BeersTable.TABLE_NAME)
-            .where(
-                BeersTable.COLUMN_NAME + " LIKE ?" +
-                    " OR " +
-                    BeersTable.COLUMN_BREWER_TIPS + " LIKE ?" +
-                    " OR " +
-                    BeersTable.COLUMN_CONTRIBUTED_BY + " LIKE ?" +
-                    " OR " +
-                    BeersTable.COLUMN_DESCRIPTION + " LIKE ?" +
-                    " OR " +
-                    BeersTable.COLUMN_FIRST_BREWED + " LIKE ?" +
-                    " OR " +
-                    BeersTable.COLUMN_TAGLINE + " LIKE ?"
-            )
-            //StorIO requires args to match the number of '?' defined above
-            .whereArgs(escapedTerm, escapedTerm, escapedTerm, escapedTerm, escapedTerm,
-                escapedTerm)
+            .where(DBUtils.generateWhereStatement(searchableColumns, terms.size))
+            .whereArgs(DBUtils.generateWrappedTermsList(terms, searchableColumns.size))
             .build()
         )
         .prepare()

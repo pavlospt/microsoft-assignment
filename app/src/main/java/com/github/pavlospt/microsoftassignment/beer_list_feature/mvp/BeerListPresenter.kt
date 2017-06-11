@@ -1,6 +1,5 @@
 package com.github.pavlospt.microsoftassignment.beer_list_feature.mvp
 
-import android.util.Log
 import com.github.pavlospt.microsoftassignment.api.models.BeerModel
 import com.github.pavlospt.microsoftassignment.beer_list_feature.mvp.InfoMessageMode.NO_PERSISTED_DATA_AVAILABLE
 import com.github.pavlospt.microsoftassignment.beer_list_feature.mvp.InfoMessageMode.PERSISTED_DATA
@@ -73,7 +72,7 @@ class BeerListPresenter(
   // Trigger search through StorIOInteractor
   fun search(term: String) {
     storIOInteractor
-        .search(term)
+        .search(term.split(" "))
         .observeOn(scheduler)
         .subscribe(object : Subscriber<List<BeerStorIOModel>>() {
           override fun onNext(searchResults: List<BeerStorIOModel>) {

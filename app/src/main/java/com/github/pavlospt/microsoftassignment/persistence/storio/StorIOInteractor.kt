@@ -7,7 +7,7 @@ import rx.Observable
 
 interface StorIOInteractor {
   fun getPersistedBeers(): Observable<List<BeerStorIOModel>>
-  fun search(term: String): Observable<List<BeerStorIOModel>>
+  fun search(terms: List<String>): Observable<List<BeerStorIOModel>>
   fun saveBeers(beers: List<BeerStorIOModel>): Observable<PutResults<BeerStorIOModel>>
   fun clearBeers(): Observable<DeleteResult>
 }
