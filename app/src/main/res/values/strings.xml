@@ -6,4 +6,5 @@
   <string name="persisted_results_info_message">Showing persisted results</string>
   <string name="no_persisted_data_available">No persisted data available</string>
   <string name="beer_search_hint_text">Type to search a beer…</string>
+  <string name="beer_image_content_description">Beer Image</string>
 </resources>

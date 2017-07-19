@@ -3,21 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="@dimen/default_padding">
 
   <ImageView
       android:id="@+id/item_beer_image"
-      android:layout_width="80dp"
-      android:layout_height="80dp"/>
+      android:layout_width="@dimen/item_beer_image_width"
+      android:layout_height="@dimen/item_beer_image_height"
+      android:contentDescription="@string/beer_image_content_description"/>
 
   <TextView
       android:id="@+id/item_beer_name"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignTop="@+id/item_beer_image"
-      android:layout_marginStart="8dp"
+      android:layout_marginStart="@dimen/item_beer_name_start_margin"
       android:layout_toEndOf="@+id/item_beer_image"
-      android:textSize="16sp"/>
+      android:textSize="@dimen/item_beer_name_text_size"/>
 
   <TextView
       android:id="@+id/item_beer_description"
@@ -26,10 +27,10 @@
       android:layout_alignBottom="@+id/item_beer_image"
       android:layout_alignStart="@+id/item_beer_name"
       android:layout_below="@+id/item_beer_name"
-      android:layout_marginTop="6dp"
+      android:layout_marginTop="@dimen/item_beer_description_top_margin"
       android:ellipsize="end"
       android:maxLines="3"
-      android:textSize="14sp"
+      android:textSize="@dimen/item_beer_description_text_size"
       android:textStyle="italic"/>
 
 </RelativeLayout>

@@ -1,12 +1,11 @@
 package com.github.pavlospt.microsoftassignment;
 
-import com.github.pavlospt.microsoftassignment.api.models.BeerModel;
+import com.github.pavlospt.microsoftassignment.repo.remote.entities.BeerModel;
 import com.github.pavlospt.microsoftassignment.misc.utils.BeerTransformer;
-import com.github.pavlospt.microsoftassignment.persistence.storio.BeerStorIOModel;
+import com.github.pavlospt.microsoftassignment.repo.local.storio.BeerStorIOModel;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class BeerTransformerTest {

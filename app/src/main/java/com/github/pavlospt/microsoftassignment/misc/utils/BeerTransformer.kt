@@ -1,7 +1,7 @@
 package com.github.pavlospt.microsoftassignment.misc.utils
 
-import com.github.pavlospt.microsoftassignment.api.models.BeerModel
-import com.github.pavlospt.microsoftassignment.persistence.storio.BeerStorIOModel
+import com.github.pavlospt.microsoftassignment.repo.remote.entities.BeerModel
+import com.github.pavlospt.microsoftassignment.repo.local.storio.BeerStorIOModel
 
 /*
 * Utility class to help with the transformation of objects between network and SQLite models

@@ -1,14 +1,14 @@
 package com.github.pavlospt.microsoftassignment;
 
-import com.github.pavlospt.microsoftassignment.api.models.BeerModel;
-import com.github.pavlospt.microsoftassignment.beer_list_feature.mvp.BeerListInteractor;
-import com.github.pavlospt.microsoftassignment.beer_list_feature.mvp.BeerListPresenter;
-import com.github.pavlospt.microsoftassignment.beer_list_feature.mvp.BeerListView;
-import com.github.pavlospt.microsoftassignment.beer_list_feature.mvp.InfoMessageMode;
+import com.github.pavlospt.microsoftassignment.repo.remote.entities.BeerModel;
+import com.github.pavlospt.microsoftassignment.beerListFeature.mvp.BeerListInteractor;
+import com.github.pavlospt.microsoftassignment.beerListFeature.mvp.BeerListPresenter;
+import com.github.pavlospt.microsoftassignment.beerListFeature.mvp.BeerListView;
+import com.github.pavlospt.microsoftassignment.beerListFeature.mvp.InfoMessageMode;
 import com.github.pavlospt.microsoftassignment.misc.utils.BeerTransformer;
-import com.github.pavlospt.microsoftassignment.persistence.storio.BeerStorIOModel;
-import com.github.pavlospt.microsoftassignment.persistence.storio.BeersTable;
-import com.github.pavlospt.microsoftassignment.persistence.storio.StorIOInteractor;
+import com.github.pavlospt.microsoftassignment.repo.local.storio.BeerStorIOModel;
+import com.github.pavlospt.microsoftassignment.repo.local.storio.BeersTable;
+import com.github.pavlospt.microsoftassignment.repo.local.interactor.StorIOInteractor;
 import com.pushtorefresh.storio.sqlite.operations.delete.DeleteResult;
 import com.pushtorefresh.storio.sqlite.operations.put.PutResult;
 import com.pushtorefresh.storio.sqlite.operations.put.PutResults;

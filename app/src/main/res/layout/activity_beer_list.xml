@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.github.pavlospt.microsoftassignment.beer_list_feature.BeerListActivity">
+    tools:context="com.github.pavlospt.microsoftassignment.beerListFeature.BeerListActivity">
 
   <EditText
       android:id="@+id/activity_beer_list_search"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginEnd="16dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginTop="10dp"
+      android:layout_marginEnd="@dimen/default_end_margin"
+      android:layout_marginStart="@dimen/default_start_margin"
+      android:layout_marginTop="@dimen/activity_beer_list_search_box_top_margin"
       android:hint="@string/beer_search_hint_text"/>
 
   <TextView
@@ -20,9 +20,9 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_below="@+id/activity_beer_list_search"
-      android:layout_marginTop="10dp"
+      android:layout_marginTop="@dimen/activity_beer_list_info_message_top_margin"
       android:gravity="center"
-      android:textSize="16sp"
+      android:textSize="@dimen/activity_beer_list_info_message_text_size"
       android:textStyle="italic"
       android:visibility="gone"
       tools:text="Showing persisted results"
@@ -32,7 +32,7 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:layout_below="@+id/activity_beer_list_info_message"
-      android:layout_marginTop="10dp">
+      android:layout_marginTop="@dimen/activity_beer_list_content_top_margin">
 
     <ProgressBar
         android:id="@+id/activity_beer_list_loading_progress"
